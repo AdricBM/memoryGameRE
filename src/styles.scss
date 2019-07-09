@@ -1,1 +1,317 @@
 /* You can add global styles to this file, and also import other style files */
+
+// Fonts
+$titleFont: 'Barriecito', cursive;
+$mainFont: 'Sniglet', cursive;
+
+// Colors
+$bgColor1: #80eeff;
+$bgColor2: #17a2c8;
+$cardBColor: #ff3f92;
+$cardFColor1: #EDDD8C;
+$cardFColor2: #F9BB96;
+$cardFColor3: #E76062;
+
+*
+{
+    box-sizing: border-box;
+}
+
+html
+{
+    min-height: 100vh;
+}
+
+body
+{
+    background: radial-gradient(#80eeff, #17a2c8);
+    margin: 0;
+}
+
+.gameContainer
+{
+    display: grid;
+    grid-template-columns: repeat(10, auto);
+    grid-gap: 10px;
+    margin: 10px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.gameInfoContainer
+{
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pageTitle
+{
+    font-family: $titleFont, Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 4em;
+    -webkit-text-fill-color: #131313;
+    -webkit-text-stroke-width: 3px;
+}
+
+.gameInfo
+{
+    font-family: $mainFont, Helvetica, sans-serif;
+    color: #1d1d1d;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.tmr
+{
+    color: #00ff00;
+    background-color: #202020;
+    border-radius: 50px;
+    opacity: .7;
+}
+
+.tmr1
+{
+    color: #ff3300;
+    opacity: .8;
+}
+
+.tmr2
+{
+    color: #ff0000;
+    opacity: .9;
+}
+
+.card
+{
+    position: relative;
+    height: 175px;
+    width: 125px;
+}
+
+.card.visible .cardBack
+{
+    transform: rotateY(180deg);
+}
+
+.card.visible .cardFront
+{
+    transform: rotateY(0)
+}
+
+.card.matched .cardValue
+{
+    animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.cardFace
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 600ms ease-in-out;
+    cursor: pointer;
+}
+
+.cardFace:hover
+{
+    border-radius: 8px;
+    
+}
+
+.cardFront
+{
+    transform: rotateY(180deg);
+    background-color: $cardFColor3;
+    border-color:$cardFColor3;
+}
+
+.cardBack
+{
+    background-color: $cardBColor;
+    border-color: $cardBColor;
+}
+
+.cardFrontImage
+{
+    transform: translateY(0);
+    transition: transform 200ms ease-in-out;
+    height: 70%;
+    width: 80%;
+}
+
+.cardBack:hover .cardFrontImage
+{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.cardValue
+{
+    height: 70%;
+    width: 80%;
+    transform: scale(.9);
+    transition: all 200ms ease-in-out;
+}
+
+.cardFront:hover .cardValue
+{
+    transform: scale(1);
+}
+
+//overlay Widgets
+
+//click to start
+.overlayText
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    font-family: $titleFont, Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    -webkit-text-fill-color: $cardFColor2;
+    -webkit-text-stroke-width: 3px;
+    cursor: pointer;
+}
+
+.overlayTextSmall
+{
+    font-size: .3em;
+    -webkit-text-stroke-width: 2px;
+    font-family: $mainFont;
+    cursor: pointer;
+}
+
+// Start screen of the game
+.overlayText.start.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlayPop 500ms forwards;
+}
+
+// victory screen
+.overlayText.victory.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlayPop2 500ms forwards;
+}
+
+// game over screen
+.overlayText.over.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlayPop2 500ms forwards;
+}
+
+// Table
+table 
+{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th 
+{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+// KeyFrames
+
+// shake Keyframe
+@keyframes shake 
+{
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+// OverlayPop keyframe
+@keyframes overlayPop
+{
+    from
+    {
+        background-color: rgba(0,0,0,0);
+        font-size: 0;
+    }
+    to
+    {
+        background-color: rgba(0,0,0,.8);
+        font-size: 10em;
+        -webkit-text-stroke-width: 4px;
+    }
+}
+
+// OverlayPop keyframe
+@keyframes overlayPop2
+{
+    from
+    {
+        background-color: rgba(0,0,0,0);
+        font-size: 0;
+    }
+    to
+    {
+        background-color: rgba(0,0,0,.8);
+        font-size: 4em;
+        justify-content: flex-start;
+    }
+}
+
+// Media Queries
+
+// Width 600px
+@media(max-width: 600px)
+{
+    .gameContainer
+    {
+        grid-template-columns: repeat(3, auto)
+    }
+}
+
+// Width 500px
+@media(max-width: 500px)
+{
+    .gameContainer
+    {
+        grid-template-columns: repeat(2, auto)
+    }
+    .gameInfoContainer
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}

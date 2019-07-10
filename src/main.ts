@@ -68,8 +68,6 @@ class tastyMatch
         this.busy = false;
       }, 600);
       this.hideCards();
-      this.timer.innerText = this.timeRemaining;
-      this.ticker.innerText = this.totalClicks;
   }
 
   /**
@@ -95,7 +93,6 @@ class tastyMatch
     this.cardsArray.forEach(card => 
     {
       card.classList.add('visible');
-      // card.classList.remove('matched');
     });
   }
 
@@ -182,8 +179,6 @@ class tastyMatch
     card2.classList.add('matched');
     if(this.matchedCards.length === this.cardsArray.length)
     {
-      this.score.innerText = this.ticker.innerText;
-      this.time.innerText = this.timer.innerText;
       this.victory();
     }
    }
@@ -234,9 +229,9 @@ class tastyMatch
   victory()
   {
     document.getElementById('victoryText').classList.add('visible');
-    this.score.innerText = this.ticker.innerText;
-    this.time.innerText = this.timer.innerText;
     clearInterval(this.countDown);
+    this.score.innerText = '123';
+    this.time.innerText = '(120 - this.timeRemaining)';
   }
 
    /**
@@ -245,13 +240,17 @@ class tastyMatch
   gameOver()
   { 
     //show gameOver screen/widget
-    document.getElementById('gameOverText').classList.add('visible');
     document.getElementById('timeRamaining').classList.remove('tmr','tmr1','tmr2');
-    this.score.innerText = this.ticker.innerText;
-    this.time.innerText = this.timer.innerText;
-    //clear countdown
+    
+    // clear countdown
     clearInterval(this.countDown);
     this.showCards();
+    return setInterval(()=>
+    {
+      this.score.innerText;
+      this.time.innerText;
+      document.getElementById('gameOverText').classList.add('visible');
+    },150);
   }
 }
 
@@ -266,7 +265,7 @@ function ready()
   // grab cards by class name and put them in an array
   let cards = Array.from(document.getElementsByClassName('card'));
   // declare game instace
-  let game = new tastyMatch(200, cards);
+  let game = new tastyMatch(4, cards);
   
   /**
    * loop through overlays and add 'click' eventListeners

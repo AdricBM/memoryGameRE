@@ -47,8 +47,8 @@ class tastyMatch
     this.timeRemaining = totalTime;
     this.timer = document.getElementById('timeRamaining');
     // change this to this.flip
-    this.ticker = document.getElementById('flips');
     this.score = document.getElementById('score');
+    this.ticker = document.getElementById('flips');
     this.time = document.getElementById('time');
   }
   startGame()
@@ -227,11 +227,11 @@ class tastyMatch
    * displays victory widget on game completion
    **/
   victory()
-  {
+  { 
+    this.score.innerText = (this.totalClicks / 2);
+    this.time.innerText = (120 - this.timeRemaining) + ' sec';
     document.getElementById('victoryText').classList.add('visible');
     clearInterval(this.countDown);
-    this.score.innerText = '123';
-    this.time.innerText = '(120 - this.timeRemaining)';
   }
 
    /**
@@ -245,12 +245,7 @@ class tastyMatch
     // clear countdown
     clearInterval(this.countDown);
     this.showCards();
-    return setInterval(()=>
-    {
-      this.score.innerText;
-      this.time.innerText;
-      document.getElementById('gameOverText').classList.add('visible');
-    },150);
+    document.getElementById('gameOverText').classList.add('visible');
   }
 }
 
@@ -265,7 +260,7 @@ function ready()
   // grab cards by class name and put them in an array
   let cards = Array.from(document.getElementsByClassName('card'));
   // declare game instace
-  let game = new tastyMatch(4, cards);
+  let game = new tastyMatch(120, cards);
   
   /**
    * loop through overlays and add 'click' eventListeners

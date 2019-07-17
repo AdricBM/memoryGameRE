@@ -1,1 +1,9 @@
-<p>card works!</p>
+
+<div class="card" *ngFor="let card of cards">
+    <div class="cardBack cardFace">
+        <img class="cardFrontImage" src="./assets/icons/png/waiter.png" alt="waiter">
+    </div>
+    <div class="cardFront cardFace">
+        <img class="cardValue" src="./assets/icons/png/{{card}}">
+    </div>
+</div>

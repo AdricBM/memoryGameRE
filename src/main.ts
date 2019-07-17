@@ -8,8 +8,6 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 import { emptyScheduled } from 'rxjs/internal/observable/empty';
-// import { TIMEOUT } from 'dns';
-// import { timeout } from 'q';
 
 if (environment.production) {
   enableProdMode();
@@ -260,7 +258,7 @@ function ready()
   // grab cards by class name and put them in an array
   let cards = Array.from(document.getElementsByClassName('card'));
   // declare game instace
-  let game = new tastyMatch(5, cards);
+  let game = new tastyMatch(200, cards);
   
   /**
    * loop through overlays and add 'click' eventListeners

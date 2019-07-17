@@ -1,0 +1,96 @@
+
+// Fonts
+$titleFont: 'Barriecito', cursive;
+$mainFont: 'Sniglet', cursive;
+
+// Colors
+$bgColor1: #80eeff;
+$bgColor2: #17a2c8;
+$cardBColor: #ff3f92;
+$cardFColor1: #EDDD8C;
+$cardFColor2: #F9BB96;
+$cardFColor3: #E76062;
+
+.card
+{
+    position: relative;
+    height: 135px;
+    width: 85px;
+}
+
+.card.visible .cardBack
+{
+    transform: rotateY(180deg);
+}
+
+.card.visible .cardFront
+{
+    transform: rotateY(0)
+}
+
+.card.matched .cardValue
+{
+    animation: shake 2s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.cardFace
+{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    border-width: 1px;
+    border-style: solid;
+    transition: all 600ms ease-in-out;
+    cursor: pointer;
+}
+
+.cardFace:hover
+{
+    border-radius: 8px;
+}
+
+.cardFront
+{
+    transform: rotateY(180deg);
+    background-color: $cardFColor3;
+    border-color:$cardFColor3;
+}
+
+.cardBack
+{
+    background-color: $cardBColor;
+    border-color: $cardBColor;
+}
+
+.cardFrontImage
+{
+    transform: translateY(0);
+    transition: transform 200ms ease-in-out;
+    height: 70%;
+    width: 80%;
+}
+
+.cardBack:hover .cardFrontImage
+{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.cardValue
+{
+    height: 70%;
+    width: 80%;
+    transform: scale(.9);
+    transition: all 200ms ease-in-out;
+}
+
+.cardFront:hover .cardValue
+{
+    transform: scale(1);
+}

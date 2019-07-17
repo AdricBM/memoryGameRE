@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { OverlaysComponent } from './overlays/overlays.component';
 import { CardBoardComponent } from './card-board/card-board.component';
 import { CardComponent } from './card/card.component';
+import { CardsService } from './cards.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { CardComponent } from './card/card.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [CardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

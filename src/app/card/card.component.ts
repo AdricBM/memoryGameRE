@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CardsService } from '../cards.service';
 
 @Component({
   selector: 'app-card',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  cards = [];
+  constructor(private cardService:CardsService) { }
 
-  ngOnInit() {
+  ngOnInit() 
+  {
+    console.log('garba');
+    this.cards = this.cardService.getCards();
   }
 
 }

@@ -1,0 +1,64 @@
+// Fonts
+$titleFont: 'Barriecito', cursive;
+$mainFont: 'Sniglet', cursive;
+
+// Colors
+$bgColor1: #80eeff;
+$bgColor2: #17a2c8;
+$cardBColor: #ff3f92;
+$cardFColor1: #EDDD8C;
+$cardFColor2: #F9BB96;
+$cardFColor3: #E76062;
+
+//overlay Widgets
+
+//click to start
+.overlayText
+{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    font-family: $titleFont, Arial, Helvetica, sans-serif;
+    color: #ffffff;
+    -webkit-text-fill-color: $cardFColor2;
+    -webkit-text-stroke-width: 3px;
+    cursor: pointer;
+}
+
+.overlayTextSmall
+{
+    font-size: .3em;
+    -webkit-text-stroke-width: 2px;
+    font-family: $mainFont;
+    cursor: pointer;
+}
+
+// Start screen of the game
+.overlayText.start.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlayPop 500ms forwards;
+}
+
+// victory screen
+.overlayText.victory.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlayPop2 500ms forwards;
+}
+
+// game over screen
+.overlayText.over.visible
+{
+    display: flex;
+    flex-direction: column;
+    animation: overlayPop2 500ms forwards;
+}

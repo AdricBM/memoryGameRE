@@ -228,7 +228,7 @@ class tastyMatch
    **/
   victory()
   { 
-    this.score.innerText = (this.totalClicks / 2);
+    this.score.innerText = (this.totalClicks / 2) + ' points';
     this.time.innerText = (120 - this.timeRemaining) + ' sec';
     document.getElementById('victoryText').classList.add('visible');
     clearInterval(this.countDown);
@@ -260,7 +260,7 @@ function ready()
   // grab cards by class name and put them in an array
   let cards = Array.from(document.getElementsByClassName('card'));
   // declare game instace
-  let game = new tastyMatch(120, cards);
+  let game = new tastyMatch(5, cards);
   
   /**
    * loop through overlays and add 'click' eventListeners

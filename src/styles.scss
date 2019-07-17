@@ -28,23 +28,6 @@ body
     margin: 0;
 }
 
-.gameContainer
-{
-    display: grid;
-    grid-template-columns: repeat(5, auto);
-    grid-gap: 10px;
-    margin: 10px;
-    justify-content: center;
-    perspective: 500px;
-}
-
-.gameInfoContainer
-{
-    grid-column: 1 / -1;
-    display: flex;
-    justify-content: space-between;
-}
-
 .pageTitle
 {
     font-family: $titleFont, Arial, Helvetica, sans-serif;
@@ -54,6 +37,13 @@ body
     font-size: 4em;
     -webkit-text-fill-color: #131313;
     -webkit-text-stroke-width: 3px;
+}
+
+.gameInfoContainer
+{
+    display: flex;
+    grid-column: 1 / -1;
+    justify-content: space-between;
 }
 
 .gameInfo
@@ -169,58 +159,7 @@ body
     transform: scale(1);
 }
 
-//overlay Widgets
 
-//click to start
-.overlayText
-{
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    font-family: $titleFont, Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    -webkit-text-fill-color: $cardFColor2;
-    -webkit-text-stroke-width: 3px;
-    cursor: pointer;
-}
-
-.overlayTextSmall
-{
-    font-size: .3em;
-    -webkit-text-stroke-width: 2px;
-    font-family: $mainFont;
-    cursor: pointer;
-}
-
-// Start screen of the game
-.overlayText.start.visible
-{
-    display: flex;
-    flex-direction: column;
-    animation: overlayPop 500ms forwards;
-}
-
-// victory screen
-.overlayText.victory.visible
-{
-    display: flex;
-    flex-direction: column;
-    animation: overlayPop2 500ms forwards;
-}
-
-// game over screen
-.overlayText.over.visible
-{
-    display: flex;
-    flex-direction: column;
-    animation: overlayPop2 500ms forwards;
-}
 
 // Table
 table 

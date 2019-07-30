@@ -43,7 +43,7 @@ class tastyMatch
     this.cardsArray = cards;
     this.totalTime = totalTime;
     this.timeRemaining = totalTime;
-    this.timer = document.getElementById('timeRamaining');
+    this.timer = document.getElementById('timeRemaining');
     // change this to this.flip
     this.score = document.getElementById('score');
     this.ticker = document.getElementById('flips');
@@ -69,7 +69,7 @@ class tastyMatch
   }
 
   /**
-   * hideCards funtion
+   * hideCards function
    * loops through cardsArray and removes classes
    **/
   hideCards()
@@ -82,7 +82,7 @@ class tastyMatch
   }
 
   /**
-   * showCards() funtion
+   * showCards() function
    * shows all cards if you lost the game
    **/
 
@@ -112,12 +112,12 @@ class tastyMatch
    * */
   canFlipCard(card)
   {
-    // check to see if you can flip card (if all three statements are flase then return true)
+    // check to see if you can flip card (if all three statements are false then return true)
     return (!this.busy && !this.matchedCards.includes(card) && card !== this.cardToCheck);
   }
 
   /**
-   *flipCard funtion
+   *flipCard function
    **/
    flipCard(card)
    {
@@ -167,7 +167,7 @@ class tastyMatch
 
    /**
     * cardMatch() function
-    * takes matched cards and pushes them to the matcheCards array and adds matched class
+    * takes matched cards and pushes them to the matchCards array and adds matched class
     **/
    cardMatch(card1, card2)
    {
@@ -182,7 +182,7 @@ class tastyMatch
    }
 
    /**
-    * cardMisMatch() funtion
+    * cardMisMatch() function
     **/
    cardMisMatch(card1, card2)
    {
@@ -196,7 +196,7 @@ class tastyMatch
    }
 
    /**
-   * startCountdonw() funtion
+   * startCountdown() function
    * starts the game countdown
    **/
   startCountDown()
@@ -207,11 +207,11 @@ class tastyMatch
       this.timer.innerText = this.timeRemaining;
       if(this.timeRemaining === 60)
       {
-        document.getElementById('timeRamaining').classList.add('tmr1');
+        document.getElementById('timeRemaining').classList.add('tmr1');
       }
       if(this.timeRemaining === 30)
       {
-        document.getElementById('timeRamaining').classList.add('tmr2');
+        document.getElementById('timeRemaining').classList.add('tmr2');
       }
       if(this.timeRemaining === 0)
       {
@@ -238,7 +238,7 @@ class tastyMatch
   gameOver()
   { 
     //show gameOver screen/widget
-    document.getElementById('timeRamaining').classList.remove('tmr','tmr1','tmr2');
+    document.getElementById('timeRemaining').classList.remove('tmr','tmr1','tmr2');
     
     // clear countdown
     clearInterval(this.countDown);
@@ -257,7 +257,7 @@ function ready()
   let overlays = Array.from(document.getElementsByClassName('overlayText'));// put html collection into an array
   // grab cards by class name and put them in an array
   let cards = Array.from(document.getElementsByClassName('card'));
-  // declare game instace
+  // declare game instance
   let game = new tastyMatch(200, cards);
   
   /**
@@ -269,7 +269,7 @@ function ready()
       {
         overlay.classList.remove('visible');
         // initialize game
-        document.getElementById('timeRamaining').classList.add('tmr');
+        document.getElementById('timeRemaining').classList.add('tmr');
         game.startGame();
       });
     });
@@ -285,14 +285,14 @@ function ready()
 
 
 /**
- * if statement calls the ready() funtion
+ * if statement calls the ready() function
  **/
 if(document.readyState === 'loading')
 {
   /**
-   * call ready() funtion when document is finished loading 
+   * call ready() function when document is finished loading 
    * */
-  //***** ??question remove arrow funtion and ask why it gives the error
+  //***** ??question remove arrow function and ask why it gives the error
   document.addEventListener('DOMContentLoaded', () => ready());// function ready initializes the whole program
 } 
 else
